@@ -4,14 +4,10 @@ from controllers.lor_deck_controller import LorDeckController
 
 class LorDeckResource(Resource):
     """
-    Check API Endpoints
+    Lor deck API resource
     """
     def get(self, deck_string):
         """
-        Return It's working to identify service status
+        Return a list of the cards on a deck with all metadata
         """
         return LorDeckController().decode_deck(deck_string)
-
-    def post(self):
-        """"""
-        return "It`s working"
