@@ -120,6 +120,16 @@ class LORDeckUtils:
                 result_dict[card['cardCode']] = card
             return result_dict
 
+    def __lor_set_list(self, set_path: str) -> dict:
+        """
+        From the path to a json of set return a dict with the json data
+        :param set_path: String with the path to the set json
+        :return: Dict of the set
+        """
+        with open(set_path, 'rb') as json_file:
+            data = json.load(json_file)
+            return data
+
     def get_sets_dict(self):
         """
         Returns a dict with all the cards from the current sets
@@ -133,3 +143,10 @@ class LORDeckUtils:
                 **self.__lor_set_dict(set_path)
             }
         return sets_json
+
+    def get_sets_list(self):
+        sets_list = []
+        for lor_set in range(1, NUMBER_OF_SETS + 1):
+            set_path = f'{STATIC_ABSOLUTE_PATH}/set{lor_set}-en_us.json'
+            sets_list.extend(self.__lor_set_list(set_path))
+        return sets_list
