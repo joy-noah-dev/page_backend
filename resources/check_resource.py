@@ -1,4 +1,3 @@
-from flask import request
 from flask_restful import Resource
 
 
@@ -8,7 +7,6 @@ class CheckResource(Resource):
     """
     def get(self):
         """
-        Return code to identify status of the api
-        :return response: JSON. Ie, {}
+        Return It's working to identify service status
         """
         return "It's working"

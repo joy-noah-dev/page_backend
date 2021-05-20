@@ -3,6 +3,7 @@ from config import NUMBER_OF_SETS
 from utils.base32_utils import decode_base32, int_list, encode_base32_from_list
 from typing import List
 import json
+from statics import STATIC_ABSOLUTE_PATH
 
 
 class LORDeckUtils:
@@ -126,7 +127,7 @@ class LORDeckUtils:
         """
         sets_json = {}
         for lor_set in range(1, NUMBER_OF_SETS + 1):
-            set_path = f'../statics/set{lor_set}-en_us.json'
+            set_path = f'{STATIC_ABSOLUTE_PATH}/set{lor_set}-en_us.json'
             sets_json = {
                 **sets_json,
                 **self.__lor_set_dict(set_path)
